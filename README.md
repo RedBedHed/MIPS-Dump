@@ -1,2 +1,2 @@
 # MIPS-Dump
-Random MIPS programs (For science! You monster.)
+This is where I am dumping my random MIPS programs. Read at your own risk!
