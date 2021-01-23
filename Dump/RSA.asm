@@ -73,8 +73,8 @@ L1A:				#
 	beq	$t6, 32, L1A0	# If the byte represents '\s', break.
 	beq	$t6, 10, L1A0	# If the byte represents '\n', break.
 	beqz	$t6, RET	# If the byte represents '\0', break.
-	bgt	$t6, 57, EXIT	# If the byte is not a digit...
-	blt	$t6, 48, EXIT	# restart from main.
+	bgt	$t6, 57, EX	# If the byte is not a digit...
+	blt	$t6, 48, EX	# restart from main.
 	andi	$t6, $t6, 0xF	# Convert ASCII digit to int and store in $t6.
 	sll	$t9, $t7, 1	# Multiply the counter by ten
 	sll	$t7, $t7, 3	# 	($t7 << 1) + ($t7 << 3) =
@@ -113,7 +113,7 @@ L2B2:				#
 S0:				#
 	addiu 	$v0, $t0, 0	# Move $t0 to $v0.
 	jr 	$ra		# Return from FASTME.
-EXIT:				#
+EX:				#
 	la 	$a0, error	# Print error message.
 	addiu	$v0, $0, 4	#
 	syscall			#
